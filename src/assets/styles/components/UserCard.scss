@@ -1,0 +1,64 @@
+@import "../common/common";
+
+.users-grid {
+  .loader {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: calc(50% - 17.5px);
+    top: calc(50% - 17.5px);
+  }
+
+  .section-title {
+    font-size: 35 * $px;
+    line-height: 1;
+    font-weight: 600;
+
+    span {
+      font-weight: 100;
+    }
+  }
+
+  .user-card {
+    margin: 25 * $px 0;
+
+    .user-card__inner {
+      height: 100%;
+      box-shadow: $neomorph_shadow;
+      padding: 25 * $px;
+      border-radius: $border_radius;
+
+      h2 {
+        @extend .section-title;
+        font-size: 22 * $px;
+      }
+
+      p {
+        @include flexCenter(flex-start, $wrap: nowrap);
+        font-size: 13 * $px;
+        margin: 10 * $px 0;
+      }
+
+      img {
+        &.icon {
+          width: 25 * $px;
+          height: 25 * $px;
+          margin-right: 10 * $px;
+          filter: invert(1);
+        }
+
+        &.user-picture {
+          width: 140 * $px;
+          border-radius: 50%;
+          display: block;
+          margin: 30 * $px auto;
+        }
+      }
+
+      button {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "../common/common";
+
+.error-wrapper {
+  text-align: center;
+  padding: 35 * $px !important;
+  border-radius: $border_radius;
+  box-shadow: $neomorph_shadow;
+  width: fit-content !important;
+  margin: 100 * $px auto 0;
+
+  h3 {
+    font-size: 105 * $px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 18 * $px;
+  }
+}

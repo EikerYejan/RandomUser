@@ -1,0 +1,60 @@
+* {
+  scroll-behavior: smooth;
+  font-family: $font_main;
+}
+
+body {
+  background: $body_bg;
+  padding: 85 * $px 8% 45 * $px;
+  min-height: 100vh;
+  color: $white;
+}
+
+.columns {
+  padding: 0;
+  margin: 0 !important;
+}
+
+button {
+  background: none;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  font-family: $font_main;
+
+  &.btn-white {
+    border: 2 * $px solid $white;
+    border-radius: $border_radius;
+    padding: 8 * $px 25 * $px;
+    background-color: transparent;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: $white;
+      color: $body_bg;
+    }
+  }
+}
+
+.has-after {
+  position: relative;
+  padding-bottom: 15 * $px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 10 * $px;
+    height: 10 * $px;
+    border-radius: 50%;
+    background: $white;
+  }
+}
+
+// Responsive utils
+@media screen and (max-width: 768 * $px) {
+  .p-mb-0 {
+    padding: 0;
+  }
+}

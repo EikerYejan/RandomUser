@@ -1,0 +1,19 @@
+// Units
+$px: 0.0625rem;
+
+// Fonts
+$font_main: "Poppins";
+
+// Colors
+$white: #fff;
+$transparent: rgba(0, 0, 0, 0.2);
+$light-shadow: #131313;
+$dark_shadow: #1f1e1e;
+$body_bg: #1c1c1e;
+
+// Shadows
+$box_shadow: 0 4px 12px $dark_shadow;
+$neomorph_shadow: -2px -2px 5px $light_shadow, 2px 2px 5px $dark_shadow;
+
+// Layout
+$border_radius: 6 * $px;
