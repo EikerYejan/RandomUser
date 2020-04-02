@@ -10,4 +10,18 @@ export type UserObject = {
     large: string
   }
   cell: string
+  location: {
+    street: {
+      number: string
+      name: string
+    }
+    city: string
+    state: string
+    country: string
+    postcode: string
+    coordinates: {
+      latitude: number
+      longitude: number
+    }
+  }
 }
