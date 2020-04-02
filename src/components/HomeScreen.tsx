@@ -25,12 +25,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ username }) => {
     const fetchUsers = async () => {
       try {
         const users = await http({ url, method: "GET" })
-        console.log(users)
 
         // Update state
         setUsers(users.results)
       } catch (error) {
-        console.log(error)
         setError(true)
       }
     }
