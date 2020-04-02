@@ -1,0 +1,24 @@
+@import "../common/common";
+
+#navbar {
+  @include flexCenter(space-between, $wrap: nowrap);
+  position: fixed;
+  width: 100%;
+  height: 85 * $px;
+  top: 0;
+  left: 0;
+  padding: 15px 9%;
+  background: $light_shadow;
+  z-index: 1;
+
+  p {
+    font-weight: 100;
+  }
+
+  a {
+    img {
+      width: 35 * $px;
+      filter: invert(1);
+    }
+  }
+}
