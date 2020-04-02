@@ -17,7 +17,13 @@ const UserCard: React.FC<UserCardProps> = ({ data }) => {
 
   return (
     <>
-      {isShown ? <UserModal goBack={goBack} user={data} /> : null}
+      <div
+        className={`modal-container ${
+          isShown ? "modal--is-shown" : "modal--is-hidden"
+        }`}
+      >
+        {isShown ? <UserModal goBack={goBack} user={data} /> : null}
+      </div>
       <div className="column is-4-desktop is-6-tablet user-card">
         <div className="user-card__inner">
           <h2>

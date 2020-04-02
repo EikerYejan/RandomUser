@@ -2,31 +2,12 @@ import React, { useState, useEffect } from "react"
 import { http } from "./helpers/Axios"
 import UserCard from "./components/users/UserCard"
 import Error from "./components/Error"
-import { UserObject } from "./types"
-
-import avatar from "./assets/images/avatar.webp"
-
-const users: UserObject[] = [
-  {
-    name: {
-      title: "Mr",
-      first: "Eiker",
-      last: "Yejan",
-    },
-    gender: "male",
-    picture: {
-      large: avatar,
-    },
-    email: "eikeryejan@gmail.com",
-    cell: "cellphone",
-  },
-]
 
 function App() {
   /**
    * Initial state
    */
-  // const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([])
   const [error, setError] = useState(false)
 
   /**
@@ -42,7 +23,7 @@ function App() {
         console.log(users)
 
         // Update state
-        // setUsers(users.results)
+        setUsers(users.results)
       } catch (error) {
         console.log(error)
         setError(true)
@@ -50,7 +31,7 @@ function App() {
     }
 
     // Run function
-    //fetchUsers()
+    fetchUsers()
   }, [])
 
   return (
