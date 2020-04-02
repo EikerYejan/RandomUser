@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import GoogleMap from "google-map-react"
+import Loader from "./Loader"
 
 import marker from "../assets/images/marker.svg"
 
@@ -26,7 +27,7 @@ const Map: React.FC<MapProps> = ({ lat, lng }) => {
 
   return (
     <>
-      {isLoading ? <span className="loader"></span> : null}
+      <Loader loading={isLoading} />
       <GoogleMap
         bootstrapURLKeys={{ key: "AIzaSyB9vNHTqdZTK1NDN_dDrbnrxqSEKUDy8aY" }}
         defaultCenter={coordinates}

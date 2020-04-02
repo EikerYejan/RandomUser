@@ -3,6 +3,7 @@ import { http } from "../helpers/Axios"
 import UserCard from "./users/UserCard"
 import Error from "./Error"
 import NavBar from "./NavBar"
+import Loader from "./Loader"
 
 type HomeScreenProps = {
   username: string
@@ -41,7 +42,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ username }) => {
     <div id="app">
       <NavBar username={username} />
       <div className="columns is-multiline users-grid">
-        {users.length === 0 && !error ? <span className="loader"></span> : null}
+        <Loader loading={users.length === 0 && !error} />
         <div className="column is-12">
           <h1 className="section-title">
             Current <span>users</span>
