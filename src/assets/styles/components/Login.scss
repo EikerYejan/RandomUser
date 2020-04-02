@@ -1,0 +1,50 @@
+@import "../common/common";
+
+.login-wrapper {
+  min-height: 100vh;
+
+  .login-form {
+    @include flexCenter;
+
+    &__inner {
+      position: relative;
+      transition: 0.5s linear;
+
+      &.form--is-loading {
+        opacity: 0.45;
+        pointer-events: none;
+      }
+
+      h1 {
+        margin-bottom: 20 * $px;
+        font-size: 30 * $px;
+        text-align: center;
+      }
+
+      button {
+        display: block;
+        width: 240 * $px;
+        margin: 15 * $px auto;
+      }
+    }
+  }
+
+  .login-image {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 768 * $px) {
+  .login-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .login-image {
+      height: 350 * $px;
+    }
+  }
+}

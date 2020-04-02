@@ -1,61 +1,65 @@
 import React, { useState, useEffect } from "react"
-import { http } from "./helpers/Axios"
-import UserCard from "./components/users/UserCard"
-import Error from "./components/Error"
+import withFirebaseAuth, {
+  WrappedComponentProps,
+} from "react-with-firebase-auth"
+import * as Firebase from "firebase"
+import "firebase/auth"
+import FirebaseConfig from "./config/firebase"
+import HomeScreen from "./components/HomeScreen"
+import LoginScreen from "./components/LoginScreen"
 
-function App() {
+/**
+ * Initialize Firebase app
+ */
+const firebaseApp = Firebase.initializeApp(FirebaseConfig)
+
+/**
+ * Set up auth providers
+ */
+const firebaseAppAuth = firebaseApp.auth()
+
+const providers = {
+  googleProvider: new Firebase.auth.GoogleAuthProvider(),
+}
+
+const App: React.FC<WrappedComponentProps> = ({
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithGoogle,
+  error,
+  loading,
+  user,
+}) => {
   /**
    * Initial state
    */
-  const [users, setUsers] = useState([])
-  const [error, setError] = useState(false)
+  const [isLoggedIn, setLoggedIn] = useState(false)
 
   /**
-   * Fetch data
+   * Get user token
    */
   useEffect(() => {
-    const url =
-      "https://randomuser.me/api/?results=12&exc=login,registered,info,nat,id"
-
-    const fetchUsers = async () => {
-      try {
-        const users = await http({ url, method: "GET" })
-        console.log(users)
-
-        // Update state
-        setUsers(users.results)
-      } catch (error) {
-        console.log(error)
-        setError(true)
-      }
+    if (user) {
+      setLoggedIn(true)
+      console.log(user)
     }
-
-    // Run function
-    fetchUsers()
-  }, [])
+  }, [user])
 
   return (
-    <div id="app">
-      <div className="columns is-multiline users-grid">
-        {users.length === 0 && !error ? <span className="loader"></span> : null}
-        <div className="column is-12">
-          <h1 className="section-title">
-            Current <span>users</span>
-          </h1>
-        </div>
-        {error ? (
-          <Error />
-        ) : (
-          <>
-            {" "}
-            {users.map((user, index) => (
-              <UserCard key={index} data={user} />
-            ))}
-          </>
-        )}
-      </div>
-    </div>
+    <>
+      {!isLoggedIn ? (
+        <LoginScreen
+          createUser={createUserWithEmailAndPassword}
+          withEmail={signInWithEmailAndPassword}
+          withGoogle={signInWithGoogle}
+          error={error}
+          loading={loading}
+        />
+      ) : (
+        <HomeScreen username={user?.displayName || user?.email || "Stranger"} />
+      )}
+    </>
   )
 }
 
-export default App
+export default withFirebaseAuth({ providers, firebaseAppAuth })(App)
