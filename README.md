@@ -1,5 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Used in this project:
+- [Typescript](https://github.com/microsoft/TypeScript)
+- [React](https://github.com/facebook/react)
+- [Sass](https://github.com/sass/sass) (Scss)
+- [Bulma](https://github.com/jgthms/bulma) (CSS Framework)
+- [Axios](https://github.com/axios/axios) (HTTP requests)
+- [Firebase](https://firebase.google.com/) (Auth)
+- [react-with-firebase-auth](https://github.com/armand1m/react-with-firebase-auth) (React HOC for integrating Firebase Authentication methods)
+- [google-map-react](https://github.com/google-map-react/google-map-react) (React Google Maps library)
+
+## Deploy
+
+All commits to `master` are deployed automatically [here](https://react-random-user.netlify.com/) via Netlify
+
 ## Available Scripts
 
 In the project directory, you can run:
