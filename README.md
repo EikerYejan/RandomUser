@@ -1,3 +1,6 @@
+[![PWA Shields](https://www.pwa-shields.com/1.0.0/series/react/white/gray.svg)](https://react-random-user.netlify.app)
+## Live version: [Random User](https://react-random-user.netlify.app/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Used in this project:
