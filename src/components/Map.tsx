@@ -29,7 +29,9 @@ const Map: React.FC<MapProps> = ({ lat, lng }) => {
     <>
       <Loader loading={isLoading} />
       <GoogleMap
-        bootstrapURLKeys={{ key: "AIzaSyB9vNHTqdZTK1NDN_dDrbnrxqSEKUDy8aY" }}
+        bootstrapURLKeys={{
+          key: process.env.REACT_APP_GOOGLE_MAPS_KEY || "g_maps_key",
+        }}
         defaultCenter={coordinates}
         zoom={1}
         center={coordinates}
